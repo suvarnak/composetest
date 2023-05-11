@@ -9,6 +9,7 @@ docker and docker-compose are extremely useful when -
 Here we have a Simple python project with multiple library dependencies defined in the requirements.txt
 
 # Steps to build and deploy the project
+ Install `docker` and `docker-compose` for your host os.
 
 ## Step 1
 We create a DockerFile that help us build a docker image, that will have the required python environment and other dependencies.
@@ -18,10 +19,10 @@ We create a docker-compose.yaml file as our project depends on other services as
 Generally, if you need to perform multiple steps in order to process(build/compile) and start required services (e.g database, middleware etc) 
 you can define them in a Compose file. 
 In our example,  [docker-compose.yaml](docker-compose.yaml) file defines two services: 
-1. web 
+1. hitcount_webapp 
 2. redis
 
-The `web` service uses an image that is built with the [Dockerfile](Dockerfile) in the current directory. It then binds the container and the host machine to the exposed port, 8000. This example service uses the default port for the Flask web server, 5000.
+The `hitcount_webapp` service uses an image that is built with the [Dockerfile](Dockerfile) in the current directory. It then binds the container and the host machine to the exposed port, 8000. This example service uses the default port for the Flask web server, 5000.
 
 The `redis` service uses a public Redis image pulled from the [Docker Hub registry](https://hub.docker.com/) .
 
